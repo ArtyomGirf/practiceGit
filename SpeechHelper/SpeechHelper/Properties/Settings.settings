@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SpeechHelper.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="FontSizeNotes" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">14</Value>
+    </Setting>
+    <Setting Name="PathToFileWithNotes" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Program Files\TechnoGuide\notes.txt</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

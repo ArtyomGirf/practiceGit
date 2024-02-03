@@ -1,0 +1,48 @@
+﻿<Page x:Class="SpeechHelper.NotesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SpeechHelper"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="250"
+      Title="NotesPage">
+
+    <Grid>
+        <Border Height="90" VerticalAlignment="Top" BorderThickness="0,0,0,1" BorderBrush="Black" Background="#FF15AFFF">
+            <GroupBox BorderBrush="White" VerticalAlignment="Center" Margin="5,0,5,5">
+                <GroupBox.Header>
+                    <Label Content ="Размер шрифта" FontSize="15" Foreground="#FF424242"/>
+                </GroupBox.Header>
+
+                <StackPanel Orientation="Horizontal" Margin="5,0">
+                    <Button Content="A+" FontSize="18" x:Name="fontUpBtn" Width="32" Height="32" Margin="0,0,2.5,0" BorderThickness="1" BorderBrush="#FFABADB3" Click="FontUpBtnClick" Background="White"/>
+                    <Button Content="A-" FontSize="18" x:Name="fontDownBtn" Width="32" Height="32" Margin="0,0,2.5,0" BorderThickness="1"  BorderBrush="#FFABADB3" Click="FontDownBtnClick" Background="White"/>
+
+
+                    <Border Background="White" BorderBrush="#FFABADB3" BorderThickness="1">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBox x:Name="fontSizeTB" Width="86" Height="30" FontSize="18" BorderThickness="0,0,1,0" VerticalContentAlignment="Center"/>
+
+                            <Button x:Name="fontSizeApplyBtn" Width="30" Height="30" BorderBrush="#FFABADB3" BorderThickness="0,0,1,0" Click="FontSizeApplyBtnClick">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/Immages/Icons/apply.png"/>
+                                </Button.Background>
+                            </Button>
+
+                            <Button x:Name="fontSizeDeleteBtn" Width="30" Height="30" BorderBrush="{x:Null}" Click="FontSizeDeleteBtnClick">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/Immages/Icons/close.png"/>
+                                </Button.Background>
+                            </Button>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </GroupBox>
+        </Border>
+
+        <TextBox x:Name="notesText" Margin="0,90,0,30" TextWrapping="Wrap" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" FontSize="14" Height="auto" BorderBrush="{x:Null}"/>
+
+        <Button x:Name="writeToFileBtn" Content="Записать" FontSize="20" BorderBrush="Black" Click="WriteToFileBtnClick" VerticalAlignment="Bottom" BorderThickness="0,1,0,0" Background="#FF15AFFF"/>
+    </Grid>
+</Page>

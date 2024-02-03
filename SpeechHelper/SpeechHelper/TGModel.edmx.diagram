@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e4a9bdb74ac94d1880117436bf69598a" Name="Diagram1">
+        <EntityTypeShape EntityType="TGModel.Answer" Width="1.5" PointX="5.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TGModel.AnswerAfterQuestion" Width="1.5" PointX="8" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TGModel.Appeal" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TGModel.Client" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TGModel.Question" Width="1.5" PointX="5.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TGModel.QuestionAfterAnswer" Width="1.5" PointX="8" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TGModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TGModel.TypeOfClient" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TGModel.TypeOfRole" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TGModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="TGModel.FK_AnswerAfterQuestion_Answer" ManuallyRouted="false" />
+        <AssociationConnector Association="TGModel.FK_QuestionAfterAnswer_Answer" ManuallyRouted="false" />
+        <AssociationConnector Association="TGModel.FK_AnswerAfterQuestion_Question" ManuallyRouted="false" />
+        <AssociationConnector Association="TGModel.FK_Appeal_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="TGModel.FK_Appeal_User" ManuallyRouted="false" />
+        <AssociationConnector Association="TGModel.FK_Client_TypeOfClient" ManuallyRouted="false" />
+        <AssociationConnector Association="TGModel.FK_QuestionAfterAnswer_Question" ManuallyRouted="false" />
+        <AssociationConnector Association="TGModel.FK_User_TypeOfRole" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

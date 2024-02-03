@@ -1,0 +1,400 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SpeechHelper</name>
+    </assembly>
+    <members>
+        <member name="T:SpeechHelper.AddEditAnswerPage">
+            <summary>
+            Логика взаимодействия для AddEditAnswerPage.xaml
+            </summary>
+            <summary>
+            AddEditAnswerPage
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.AddEditAnswerPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SpeechHelper.AddEditAppealPage">
+            <summary>
+            Логика взаимодействия для AddEditAppealPage.xaml
+            </summary>
+            <summary>
+            AddEditAppealPage
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.AddEditAppealPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SpeechHelper.AddEditClientPage">
+            <summary>
+            Логика взаимодействия для AddEditClientPage.xaml
+            </summary>
+            <summary>
+            AddEditClientPage
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.AddEditClientPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SpeechHelper.AddEditQuestionPage">
+            <summary>
+            Логика взаимодействия для AddEditQuestionPage.xaml
+            </summary>
+            <summary>
+            AddEditQuestionPage
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.AddEditQuestionPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SpeechHelper.AddEditUserPage">
+            <summary>
+            Логика взаимодействия для AddEditUserPage.xaml
+            </summary>
+            <summary>
+            AddEditUserPage
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.AddEditUserPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SpeechHelper.AddEditWindow">
+            <summary>
+            Логика взаимодействия для AddEditUserWindow.xaml
+            </summary>
+            <summary>
+            AddEditWindow
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.AddEditWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SpeechHelper.AnswersSettingsPage">
+            <summary>
+            Логика взаимодействия для AnswersSettingsPage.xaml
+            </summary>
+            <summary>
+            AnswersSettingsPage
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.AnswersSettingsPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SpeechHelper.AppealSettingsPage">
+            <summary>
+            Логика взаимодействия для AppealSettingsPage.xaml
+            </summary>
+            <summary>
+            AppealSettingsPage
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.AppealSettingsPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SpeechHelper.ClientChoiseWindow">
+            <summary>
+            Логика взаимодействия для ClientChoise.xaml
+            </summary>
+            <summary>
+            ClientChoiseWindow
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.ClientChoiseWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SpeechHelper.ClientDataPage">
+            <summary>
+            Логика взаимодействия для ClietnDataPage.xaml
+            </summary>
+            <summary>
+            ClientDataPage
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.ClientDataPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SpeechHelper.ClientSettingsPage">
+            <summary>
+            Логика взаимодействия для ClientSettingsPage.xaml
+            </summary>
+            <summary>
+            ClientSettingsPage
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.ClientSettingsPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SpeechHelper.DBSettingsPage">
+            <summary>
+            Логика взаимодействия для DBSettingsPage.xaml
+            </summary>
+            <summary>
+            DBSettingsPage
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.DBSettingsPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SpeechHelper.MainSettingsPage">
+            <summary>
+            Логика взаимодействия для MainSettingsPage.xaml
+            </summary>
+            <summary>
+            MainSettingsPage
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.MainSettingsPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SpeechHelper.NotesPage">
+            <summary>
+            Логика взаимодействия для NotesPage.xaml
+            </summary>
+            <summary>
+            NotesPage
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.NotesPage.WriteToFile(System.String,System.String)">
+            <summary>
+            Записывает полученный текст из поля записи в файл формата .txt по указанному адресу.
+            </summary>
+            <param name="adress">Путь к файлу с заметками.</param>
+            <param name="text">Текст для записи в файл.</param>
+        </member>
+        <member name="M:SpeechHelper.NotesPage.ReadToFile(System.String)">
+            <summary>
+            Считывает текст из файла формата .txt по указанному адресу.
+            </summary>
+            <param name="adress">Путь к файлу с заметками.</param>
+            <returns>Считанный текст из файла по полученному пути.</returns>
+        </member>
+        <member name="M:SpeechHelper.NotesPage.WriteToNotes">
+            <summary>
+            Выводит текст из файла заметок в окно записи.
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.NotesPage.WriteToFileBtnClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Записывает текст из поля записи текста в файл по установленному ранее адресу.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpeechHelper.NotesPage.FontUpBtnClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Увелличивает размер шрифта на 1 позицию массива, если выходит за границы массива, то увеличение идет до первого элемента массива,если меньше, или 2 пт., если больше.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpeechHelper.NotesPage.FontDownBtnClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Уменьшает размер шрифта на 1 позицию массива, если выходит за границы массива, то уменьшение идет до последнего элемента массива,если больше, или 1 пт., если меньше.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpeechHelper.NotesPage.FontSizeDeleteBtnClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Удаляет текст из поля записи шрифта.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpeechHelper.NotesPage.FontSizeApplyBtnClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Устанавливает размер шрифта из поля записи шрифта.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpeechHelper.NotesPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SpeechHelper.QAConnectionSettingsPage">
+            <summary>
+            Логика взаимодействия для QAConnectionSettingsPage.xaml
+            </summary>
+            <summary>
+            QAConnectionSettingsPage
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.QAConnectionSettingsPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SpeechHelper.QuestionsSettingsPage">
+            <summary>
+            Логика взаимодействия для QuestionsSettingsPage.xaml
+            </summary>
+            <summary>
+            QuestionsSettingsPage
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.QuestionsSettingsPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SpeechHelper.SettingsWindow">
+            <summary>
+            Логика взаимодействия для SettingsWindow.xaml
+            </summary>
+            <summary>
+            SettingsWindow
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.SettingsWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SpeechHelper.UsersSettingsPage">
+            <summary>
+            Логика взаимодействия для UsersSettingsPage.xaml
+            </summary>
+            <summary>
+            UsersSettingsPage
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.UsersSettingsPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SpeechHelper.WorkingWindow">
+            <summary>
+            Логика взаимодействия для WorkingWindow.xaml
+            </summary>
+            <summary>
+            WorkingWindow
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.WorkingWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.IWorkWithFileInterface.WriteToFile(System.String,System.String)">
+            <summary>
+            Записывает полученный текст в файл по указанному адресу
+            </summary>
+            <param name="adress"></param>
+            <param name="text"></param>
+        </member>
+        <member name="M:SpeechHelper.IWorkWithFileInterface.ReadToFile(System.String)">
+            <summary>
+            Считывает данные из файла
+            </summary>
+            <param name="adress"></param>
+            <returns>string</returns>
+        </member>
+        <member name="T:SpeechHelper.App">
+            <summary>
+            Логика взаимодействия для App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:SpeechHelper.MainWindow">
+            <summary>
+            Логика взаимодействия для MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:SpeechHelper.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SpeechHelper.Properties.Resources">
+            <summary>
+              Класс ресурса со строгой типизацией для поиска локализованных строк и т.д.
+            </summary>
+        </member>
+        <member name="P:SpeechHelper.Properties.Resources.ResourceManager">
+            <summary>
+              Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
+            </summary>
+        </member>
+        <member name="P:SpeechHelper.Properties.Resources.Culture">
+            <summary>
+              Перезаписывает свойство CurrentUICulture текущего потока для всех
+              обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>

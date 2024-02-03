@@ -1,0 +1,268 @@
+﻿<Page x:Class="SpeechHelper.QAConnectionSettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SpeechHelper"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1000"
+      Title="QAConnectionSettingsPage">
+
+    <Border Background="#FF15AFFF" BorderBrush="#FF96DBFF" BorderThickness="2">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" Margin="0,0,2,2" BorderThickness="0,0,3,3" BorderBrush="#FF00298C">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Label Content="Вопрос, вызывающийся при выборе ответа" Background="White" BorderBrush="#FF00298C" BorderThickness="0,0,0,2" FontWeight="Bold" FontSize="14" HorizontalContentAlignment="Center"/>
+
+                        <DataGrid Name="questionsRelations" Grid.Row="1" CanUserAddRows="False" AutoGenerateColumns="False" BorderBrush="{x:Null}">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Header="№ записи">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Label Content="{Binding RecordID}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="№ вопроса">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Label Content="{Binding QuestionID}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Описание">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Question.Text}" FontSize="16" TextWrapping="Wrap" MaxWidth="400" VerticalAlignment="Center"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="=">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Label Content="=" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="16"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="№ ответа">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Label Content="{Binding AnswerID}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Описание">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Answer.Text}" FontSize="16" TextWrapping="Wrap" MaxWidth="400" VerticalAlignment="Center"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Удалить">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Content="Удалить" Background="#FFFFAD32" FontSize="16" VerticalAlignment="Center" Click="DeleteRelationsQuestionsClick"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Column="2" Margin="2,0,0,2" BorderThickness="3,0,0,3" BorderBrush="#FF00298C">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Label Content="Ответ, вызывающийся вопросом" Background="White" BorderBrush="#FF00298C" BorderThickness="0,0,0,2" FontWeight="Bold" FontSize="14" HorizontalContentAlignment="Center"/>
+
+                        <DataGrid Name="answersRelations" Grid.Row="1" CanUserAddRows="False" AutoGenerateColumns="False" BorderBrush="{x:Null}">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Header="№ записи">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Label Content="{Binding RecordID}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="№ ответа">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Label Content="{Binding AnswerID}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Описание">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Answer.Text}" FontSize="16" TextWrapping="Wrap" MaxWidth="400" VerticalAlignment="Center"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="=">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Label Content="=" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="16"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="№ вопроса">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Label Content="{Binding QuestionID}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Описание">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Question.Text}" TextWrapping="Wrap" MaxWidth="400" FontSize="16" VerticalAlignment="Center"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Удалить">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Content="Удалить" Background="#FFFFAD32" VerticalAlignment="Center" FontSize="16" Click="DeleteRelationsAnswersClick"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="1.5*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Content="Обновить" VerticalAlignment="Center" HorizontalAlignment="Center" Width="130" Background="White" BorderThickness="2" BorderBrush="#FF00298C" Style="{DynamicResource CornerButton}" FontSize="14" Grid.Column="0" Click="ReloadRelationsQuestionsClick"/>
+
+                <Button Name="addRelationsQuestions" Margin="2" Width="120" FontSize="14" BorderThickness="2" BorderBrush="#FF00298C" Style="{DynamicResource CornerButton}" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Background="White" Click="AddRelationsQuestionsClick"/>
+                <Button Name="addRelationsAnswers" Margin="2" Width="120" FontSize="14" BorderThickness="2" BorderBrush="#FF00298C" Style="{DynamicResource CornerButton}" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Background="White" Click="AddRelationsAnswersClick"/>
+
+                <Button Content="Обновить" VerticalAlignment="Center" HorizontalAlignment="Center" Width="130" Background="White" BorderThickness="2" BorderBrush="#FF00298C" Style="{DynamicResource CornerButton}" FontSize="14" Grid.Column="2" Click="ReloadRelationsAnswersClick"/>
+            </Grid>
+            
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="1.5*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border BorderThickness="0,3,3,0" BorderBrush="#FF00298C" Margin="0,2,2,0" Background="White">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="True" HorizontalScrollBarVisibility="Hidden">
+                        <ListView Name="questions" BorderBrush="{x:Null}" SelectionChanged="QuestionsSelectionChanged">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <GroupBox BorderBrush="#FF00298C" Background="White">
+                                        <GroupBox.Header>
+                                            <ContentPresenter Content="{Binding QuestionID}"/>
+                                        </GroupBox.Header>
+
+                                        <TextBlock TextWrapping="Wrap" MaxWidth="600" x:Name="contentPresenter" Margin="10,0" FontSize="16" Focusable="False" Text="{Binding Text}"/>
+                                    </GroupBox>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollViewer>
+                </Border>
+
+                <Border Grid.Column="1" BorderThickness="3,3,3,0" BorderBrush="#FF00298C" Margin="2,2,2,0" Background="White">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <ScrollViewer Grid.Column="0" BorderBrush="{x:Null}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" CanContentScroll="True">
+                            <ListView Name="questionsList" BorderThickness="0,0,1,1">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <GroupBox BorderBrush="#FF00298C" Background="White">
+                                            <GroupBox.Header>
+                                                <ContentPresenter Content="{Binding QuestionID}"/>
+                                            </GroupBox.Header>
+                                            
+                                            <TextBlock TextWrapping="Wrap" MaxWidth="200" FontSize="16" x:Name="contentPresenter" Margin="10,0" Focusable="False" Text="{Binding Text}"/>
+                                        </GroupBox>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </ScrollViewer>
+
+                        <Label Content="=" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="16" Grid.Column="1" BorderThickness="0,0,0,1" BorderBrush="#FFABADB3" />
+
+                        <ScrollViewer Grid.Column="2" BorderBrush="{x:Null}" CanContentScroll="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                            <ListView Name="answersList" BorderThickness="1,0,0,1">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <GroupBox BorderBrush="#FF00298C" Background="White">
+                                            <GroupBox.Header>
+                                                <ContentPresenter Content="{Binding AnswerID}"/>
+                                            </GroupBox.Header>
+                                            
+                                            <TextBlock TextWrapping="Wrap" x:Name="contentPresenter" FontSize="16" Margin="10,0" Focusable="False" Text="{Binding Text}"/>
+                                        </GroupBox>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </ScrollViewer>
+
+                        <Button Name="detachQuestionBtn" Width="50" FontWeight="Bold" Background="#FF15AFFF" FontSize="16" Content="Отвязать" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Click="DetachQuestionClick"/>
+                        <Button Content="X" Background="#FFFFAD32" FontWeight="Bold" FontSize="16" Height="25" VerticalAlignment="Center" Width="30" Grid.Row="1" Grid.Column="1" Click="ClearListClick"/>
+                        <Button Name="detachAnswerBtn" Width="50" FontWeight="Bold" Background="#FF15AFFF" FontSize="16" Content="Отвязать" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" Click="DetachAnswerClick"/>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Column="2" BorderThickness="3,3,0,0" BorderBrush="#FF00298C" Margin="2,2,0,0" Background="White">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="True" HorizontalScrollBarVisibility="Hidden">
+                        <ListView Name="answers" BorderBrush="{x:Null}" SelectionChanged="AnswersSelectionChanged">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <GroupBox BorderBrush="#FF00298C" Background="White">
+                                        <GroupBox.Header>
+                                            <ContentPresenter Content="{Binding AnswerID}"/>
+                                        </GroupBox.Header>
+
+                                        <TextBlock TextWrapping="Wrap" MaxWidth="600" FontSize="16" x:Name="contentPresenter" Margin="10,0" Focusable="False" Text="{Binding Text}"/>
+                                    </GroupBox>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollViewer>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</Page>

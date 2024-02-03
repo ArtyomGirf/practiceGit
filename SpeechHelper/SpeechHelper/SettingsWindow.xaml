@@ -1,0 +1,30 @@
+﻿<Window x:Name="settingsWindow" x:Class="SpeechHelper.SettingsWindow"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SpeechHelper"
+        mc:Ignorable="d"
+        Title="Настройки" Height="700" Width="1500" Closing="SettingsWindowClosing" >
+
+    <Grid Background="#FF15AFFF">
+        <Border VerticalAlignment="Top" HorizontalAlignment="Left" Background="White" BorderBrush="Black" BorderThickness="3" CornerRadius="0,0,10,10">
+            <StackPanel Orientation="Vertical" Background="{x:Null}">
+                <Label Content="---Список параметров---" FontSize="14" Foreground="#FF7B7B7B"/>
+
+                <Button x:Name="mainSettings" Content="Основные" Style="{StaticResource MenuSettingsButton}" Click="MainSettingsClick"/>
+
+                <Button x:Name="databaseSettings" Content="Базы данных" Style="{StaticResource MenuSettingsButton}" Visibility="Collapsed" Click="DatabaseSettingsClick"/>
+
+                <Button x:Name="usersSettings" Content="Пользователей" Style="{StaticResource MenuSettingsButton}" Margin="0,0,0,5" Visibility="Collapsed" Click="UsersSettingsClick"/>
+            </StackPanel>
+        </Border>
+        <Border Margin="175,0,0,0" BorderThickness="1.5,0,0,0" BorderBrush="Black">
+            <Grid Background="White">
+                <Frame x:Name="SettingsFrame" NavigationUIVisibility="Hidden"/>
+
+            </Grid>
+        </Border>
+        <Button x:Name="closeSettingsBtn" Content="Закрыть" FontSize="15" Background="#FFFFD4D4" Width="155" Margin="10,0,0,10" BorderBrush="Black" Style="{DynamicResource CornerButton}" Click="CloseSettingsBtnClick" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+    </Grid>
+</Window>

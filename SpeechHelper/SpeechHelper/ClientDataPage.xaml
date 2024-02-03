@@ -1,0 +1,42 @@
+﻿<Page x:Class="SpeechHelper.ClientDataPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SpeechHelper"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ClietnDataPage">
+
+    <Grid>
+        <StackPanel Background="White" Margin="10">
+
+            <Label Content="Клиент:" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            
+            <GroupBox Header="Название" BorderBrush="Black" BorderThickness="2" FontSize="12">
+                <TextBox x:Name="clientName" Text="{Binding Name}" FontSize="12" BorderBrush="{x:Null}"/>
+            </GroupBox>
+            
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Номер в БД:" FontSize="12"/>
+                <Label x:Name="clientId" Content="{Binding ClientID}" FontSize="12" Margin="-2,0,0,0"/>
+                <CheckBox x:Name="clientLinked" IsEnabled="False" VerticalAlignment="Center"/>
+                <Label Content="Подключен?" FontSize="12"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <GroupBox Header="ИНН" BorderBrush="Black" BorderThickness="2" FontSize="12">
+                    <TextBox x:Name="clientInn" Text="{Binding INN}" FontSize="12" BorderBrush="{x:Null}"/>
+                </GroupBox>
+
+                <GroupBox Header="Телефон" BorderBrush="Black" BorderThickness="2" FontSize="12">
+                    <TextBox x:Name="clientTelephoneNumber" Text="{Binding TelephoneNumber}" FontSize="12" BorderBrush="{x:Null}"/>
+                </GroupBox>
+            </StackPanel>
+            
+            <GroupBox Header="Тип клиента" BorderBrush="Black" BorderThickness="2" FontSize="12">
+                <ComboBox x:Name="clientType" SelectedItem="{Binding TypeOfClient}" DisplayMemberPath="TypeName"/>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+</Page>
