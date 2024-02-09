@@ -123,48 +123,48 @@ namespace SpeechHelper
         private void ButtonQuestionClick(object sender, RoutedEventArgs e)
         {
             (sender as Button).IsEnabled = false;
-            descriptionAppeal.Append((sender as ButtonQuestion).Content + "\n");
+            descriptionAppeal.Append((sender as ButtonQuestion).Content + "\n"); // запись текста для обработки обращения.
 
-            foreach (var record in TechnoGuideEntities.GetContext().AnswerAfterQuestion)
+            foreach (var record in TechnoGuideEntities.GetContext().AnswerAfterQuestion) // поиск в БД записей, имеющих данные о номере кнопки.
             {
                 if (record.QuestionID == Convert.ToInt32((sender as Button).Tag))
                 {
-                    foreach (var answer in TechnoGuideEntities.GetContext().Answer)
+                    foreach (var answer in TechnoGuideEntities.GetContext().Answer) // поиск объектов в БД, имеющих схожий номер с данными в записи
                     {
                         if (record.AnswerID == answer.AnswerID)
-                            answers.Add(new ButtonAnswer 
-                            { Tag = answer.AnswerID, Content = answer.Text, Visibility = Visibility.Visible });
+                            answers.Add(new ButtonAnswer
+                            { Tag = answer.AnswerID, Content = answer.Text, Visibility = Visibility.Visible }); // создание объекта, передача полученных данных из БД в конструктор.
                     }
                 }
             }
 
             for (int i = 0; i < answers.Count; i++)
-                answerChoise.Children.Add(answers[i]);
+                answerChoise.Children.Add(answers[i]); // вывод созданных объектов.
         }
 
         private void ButtonAnswerClick(object sender, RoutedEventArgs e)
         {
-            answerChoise.Children.Clear();
-            workingFrame.Children.Add(sender as ButtonAnswer);
+            answerChoise.Children.Clear(); // удаление созданных объектов из поля зрения пользователя.
+            workingFrame.Children.Add(sender as ButtonAnswer); // добавление в последовательнось выбранного пользователем объекта.
 
-            (sender as Button).IsEnabled = false;
+            (sender as Button).IsEnabled = false; // отключение взаимодействия с пользователем у выбранного объекта
 
-            descriptionAppeal.Append((sender as ButtonAnswer).Content + "\n");
+            descriptionAppeal.Append((sender as ButtonAnswer).Content + "\n"); // запись текста для обработки обращения.
 
-            foreach (var record in TechnoGuideEntities.GetContext().QuestionAfterAnswer)
+            foreach (var record in TechnoGuideEntities.GetContext().QuestionAfterAnswer) // поиск в БД записей, имеющих данные о номере выбранного объекта.
             {
                 if (record.AnswerID == Convert.ToInt32((sender as ButtonAnswer).Tag))
                 {
-                    foreach (var question in TechnoGuideEntities.GetContext().Question)
+                    foreach (var question in TechnoGuideEntities.GetContext().Question) // поиск объектов в БД, имеющих схожий номер с данными в записи
                     {
                         if (record.QuestionID == question.QuestionID)
                             workingFrame.Children.Add(new ButtonQuestion 
-                            { Tag = question.QuestionID, Content = question.Text, Visibility = Visibility.Visible });
+                            { Tag = question.QuestionID, Content = question.Text, Visibility = Visibility.Visible }); // создание объекта, передача полученных данных из БД в конструктор.
                     }
                 }
             }
 
-            answers.Clear();
+            answers.Clear(); // обнуление списка созданных ранее объектов.
         }
         private void StopButtonClick(object sender, RoutedEventArgs e)
         {

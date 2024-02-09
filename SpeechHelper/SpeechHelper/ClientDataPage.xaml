@@ -30,7 +30,7 @@
                 </GroupBox>
 
                 <GroupBox Header="Телефон" BorderBrush="Black" BorderThickness="2" FontSize="12">
-                    <TextBox x:Name="clientTelephoneNumber" Text="{Binding TelephoneNumber}" FontSize="12" BorderBrush="{x:Null}"/>
+                    <TextBox x:Name="clientTelephoneNumber" Text="{Binding TelephoneNumber}" IsEnabled="False" FontSize="12" BorderBrush="{x:Null}"/>
                 </GroupBox>
             </StackPanel>
             

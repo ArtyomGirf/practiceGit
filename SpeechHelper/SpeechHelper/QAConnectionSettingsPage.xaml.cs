@@ -128,23 +128,26 @@ namespace SpeechHelper
 
         private void AddRelationsQuestionsClick(object sender, RoutedEventArgs e)
         {
-            if (relationQuestions.Count == 1)
+            if (relationQuestions.Count == 1) // проверка ограничения кол-ва выбранных записей.
             {
-                if (relationAnswers.Count > 0)
+                if (relationAnswers.Count > 0) // проверка наличия объектов для создания связи.
                 {
-                    for (int i = 0; i < relationAnswers.Count; i++)
+                    for (int i = 0; i < relationAnswers.Count; i++) // цикл проверки наличия созданных связей с выбранными объектами.
                     {
-                        foreach (var record in TechnoGuideEntities.GetContext().QuestionAfterAnswer)
+                        foreach (var record in TechnoGuideEntities.GetContext().QuestionAfterAnswer) // проверка наличия созданной связи.
                         {
                             if (record.AnswerID == relationAnswers[i].AnswerID)
                             {
-                                MessageBox.Show("Данный ответ (" + relationAnswers[i].AnswerID + ") уже связан с другим вопросом и его не возможно использовать для вызова другого вопроса (" + record.QuestionID + ").\nСоздание связи отменено.", "Добавление связи", MessageBoxButton.OK, MessageBoxImage.Error);
+                                MessageBox.Show("Данный ответ (" + relationAnswers[i].AnswerID + 
+                                    ") уже связан с другим вопросом и его не возможно использовать для вызова другого вопроса (" +
+                                    record.QuestionID + ").\nСоздание связи отменено.", "Добавление связи", 
+                                    MessageBoxButton.OK, MessageBoxImage.Error); // вывод сообзения о наличии связи между объектами.
                                 return;
                             }
                         }
                     }
 
-                    for (int i = 0; i < relationAnswers.Count; i++)
+                    for (int i = 0; i < relationAnswers.Count; i++) // циклическое создание связей.
                     {
                         TechnoGuideEntities.GetContext().QuestionAfterAnswer.Add(new QuestionAfterAnswer
                         {
@@ -156,26 +159,28 @@ namespace SpeechHelper
                             Answer = relationAnswers[i]
                         });
                     }
-                    TechnoGuideEntities.GetContext().SaveChanges();
+                    TechnoGuideEntities.GetContext().SaveChanges(); // добавление связи в БД.
                 }
                 else
-                    MessageBox.Show("Необходимо выбрать ответ(ы) для создания связи с вопросом.", "Создание связи", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("Необходимо выбрать ответ(ы) для создания связи с вопросом.", 
+                        "Создание связи", MessageBoxButton.OK, MessageBoxImage.Warning); // вывод сообщения об ошибке.
             }
             else
-                MessageBox.Show("Необходимо выбрать вопрос для создания связи.", "Создание связи", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Необходимо выбрать вопрос для создания связи.", "Создание связи",
+                    MessageBoxButton.OK, MessageBoxImage.Warning); // вывод сообщения об ошибке.
 
-            idsQuestions.Clear();
-            ReloadQuestionsRelations();
+            idsQuestions.Clear(); // обнуление списка существующих кодов записей.
+            ReloadQuestionsRelations(); // обновление таблицы записей БД.
         }
-        private int GetIdQuestionRelation(List<int> ids)
+        private int GetIdQuestionRelation(List<int> ids) // метод автоматической нумерации записей БД.
         {
-            int id = 0;
+            int id = 0; // код записи
 
-            if (ids.Count == 0)
-                foreach (var record in TechnoGuideEntities.GetContext().QuestionAfterAnswer)
+            if (ids.Count == 0) // проверка кол-ва элементов переданного списка.
+                foreach (var record in TechnoGuideEntities.GetContext().QuestionAfterAnswer) // заполнение переданного списка.
                     ids.Add(record.RecordID);
 
-            for (int i = 0; i < ids.Count; id++, i++)
+            for (int i = 0; i < ids.Count; id++, i++) // подбор кода для новой записи.
             {
                 if (ids[i] == id)
                     continue;
@@ -185,9 +190,9 @@ namespace SpeechHelper
                 }
             }
 
-            ids.Add(id);
-            ids.Sort();
-            return id;
+            ids.Add(id); // добавление кода в список.
+            ids.Sort(); // сортировка списка.
+            return id; // возвращение кода записи.
         }
         private int GetIdAnswerRelation(List<int> ids)
         {
@@ -213,21 +218,22 @@ namespace SpeechHelper
         }
         private void AddRelationsAnswersClick(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < relationQuestions.Count; i++)
+            for (int i = 0; i < relationQuestions.Count; i++) // цикл создания связей объектов.
             {
-                bool currentRecord = false;
+                bool currentRecord = false; // логическая переменная наличия записи.
 
-                foreach (var record in TechnoGuideEntities.GetContext().AnswerAfterQuestion)
+                foreach (var record in TechnoGuideEntities.GetContext().AnswerAfterQuestion) // цикл проверки наличия идентичной связи.
                 {
                     if ((record.QuestionID == relationQuestions[i].QuestionID) && (record.AnswerID == relationAnswers[i].AnswerID))
                     {
                         MessageBox.Show("Связь: " + relationQuestions[i].QuestionID + " <=> " + relationAnswers[i].AnswerID +
-                            " уже существует.\nДобавление данной связи отменено.", "Добавление связи", MessageBoxButton.OK, MessageBoxImage.Warning);
-                        currentRecord = true;
+                            " уже существует.\nДобавление данной связи отменено.", 
+                            "Добавление связи", MessageBoxButton.OK, MessageBoxImage.Warning); // вывод сообщения о наличии идентичной связи.
+                        currentRecord = true; // подтверждение существования связи.
                         break;
                     }
                 }
-                if (!currentRecord)
+                if (!currentRecord) 
                     TechnoGuideEntities.GetContext().AnswerAfterQuestion.Add(new AnswerAfterQuestion
                     {
                         RecordID = GetIdAnswerRelation(idsAnswers),
@@ -236,10 +242,10 @@ namespace SpeechHelper
 
                         Question = relationQuestions[i],
                         Answer = relationAnswers[i]
-                    });
+                    }); // создание связи объектов.
             }
-            TechnoGuideEntities.GetContext().SaveChanges();
-            ReloadAnswersRelations();
+            TechnoGuideEntities.GetContext().SaveChanges(); // сохранение БД.
+            ReloadAnswersRelations(); // обновление таблицы записей.
         }
 
         private void QuestionsSelectionChanged(object sender, SelectionChangedEventArgs e)
